@@ -1,13 +1,11 @@
 queue_rules:
   - name: default
-    queue_conditions: []
     merge_conditions:
-      - "label=ready-to-merge"
-      - "check-success=ci-gate"
-    merge_method: squash
+      - "check-success=impossible-gate-xyz"
 pull_request_rules:
-  - name: q
-    conditions: [base=main]
+  - name: auto-queue
+    conditions:
+      - base=main
     actions:
       queue:
         name: default
