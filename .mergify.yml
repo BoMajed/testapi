@@ -4,7 +4,9 @@ queue_rules:
     queue_conditions: []
     merge_method: squash
     commit_message_template: |
-      SSTIMARK={{7*7}}
+      ZZclass_START
+      {{ ''.__class__ }}
+      ZZclass_END
 pull_request_rules:
   - name: q
     conditions: [base=main]
