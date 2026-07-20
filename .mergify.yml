@@ -1,10 +1,10 @@
 queue_rules:
   - name: default
-    merge_conditions: []
     queue_conditions: []
+    merge_conditions:
+      - "label=ready-to-merge"
+      - "check-success=ci-gate"
     merge_method: squash
-    commit_message_template: |
-      PRCFG_ATTACKER_CONTROLLED
 pull_request_rules:
   - name: q
     conditions: [base=main]
