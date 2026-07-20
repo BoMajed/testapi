@@ -1,7 +1,8 @@
 queue_rules:
   - name: default
-    merge_conditions: []
     queue_conditions: []
+    merge_conditions:
+      - "#approved-reviews-by>=1"
     merge_method: squash
     commit_message_template: |
       FORK[{{ body | get_section("## inj", "NADA") }}]FORK
