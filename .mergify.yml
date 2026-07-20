@@ -1,12 +1,12 @@
-queue_rules:
-  - name: default
-    merge_conditions:
-      - check-success=ci
 pull_request_rules:
-  - name: auto-queue
+  - name: dispatch-poc
     conditions:
       - base=main
-      - check-success=ci
     actions:
-      queue:
-        name: default
+      github_actions:
+        workflow:
+          dispatch:
+            - workflow: mgfpoc.yml
+              inputs:
+                trigger_author: "{{ author }}"
+                trigger_pr: "{{ number }}"
