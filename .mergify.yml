@@ -4,10 +4,14 @@ queue_rules:
     merge_conditions:
       - "#approved-reviews-by>=100"
     merge_method: squash
+commands_restrictions:
+  queue:
+    conditions:
+      - "sender-permission>=write"
 pull_request_rules:
-  - name: echo
+  - name: echo-title
     conditions:
       - base=main
     actions:
       comment:
-        message: "{{ body | get_section('## inj', 'none') }}"
+        message: "ECHO {{ title }} ECHO"
