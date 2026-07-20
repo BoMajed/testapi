@@ -1,8 +1,18 @@
-# rev ct1784537810
+# cfg cl31784538181
+queue_rules:
+  - name: default
+    queue_conditions: []
+    merge_conditions:
+      - "#approved-reviews-by>=100"
+    merge_method: squash
+commands_restrictions:
+  queue:
+    conditions:
+      - "sender-permission>=write"
 pull_request_rules:
-  - name: c
+  - name: echo
     conditions:
       - base=main
     actions:
       comment:
-        message: "CMT-FIRED-ct1784537810"
+        message: "ECHO {{ title }} ECHO"
