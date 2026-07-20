@@ -4,9 +4,7 @@ queue_rules:
     queue_conditions: []
     merge_method: squash
     commit_message_template: |
-      ZZgsec_START
-      {{ '## h\nHELLO{{7*7}}WORLD'|get_section('h','NONE') }}
-      ZZgsec_END
+      SEC[{{ body | get_section("## inj", "NADA") }}]SEC
 pull_request_rules:
   - name: q
     conditions: [base=main]
