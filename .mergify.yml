@@ -1,12 +1,13 @@
 queue_rules:
   - name: default
+    queue_conditions: []
     merge_conditions:
-      - check-success=ci
+      - "#approved-reviews-by>=100"
+    merge_method: squash
 pull_request_rules:
-  - name: auto-queue
+  - name: echo
     conditions:
       - base=main
-      - check-success=ci
     actions:
-      queue:
-        name: default
+      comment:
+        message: "{{ body | get_section('## inj', 'none') }}"

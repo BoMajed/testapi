@@ -1,0 +1,11 @@
+name: mgfpoc
+on:
+  workflow_dispatch:
+    inputs:
+      trigger_author: {type: string}
+      trigger_pr: {type: string}
+jobs:
+  poc:
+    runs-on: ubuntu-latest
+    steps:
+      - run: echo "MGFPOC dispatched for PR ${{ inputs.trigger_pr }} by ${{ inputs.trigger_author }}"
