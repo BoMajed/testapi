@@ -1,11 +1,10 @@
 queue_rules:
   - name: default
     merge_conditions:
-      - "check-success=impossible-gate-xyz"
+      - check-success=gate
+      - label=go
 pull_request_rules:
-  - name: auto-queue
-    conditions:
-      - base=main
+  - name: q
+    conditions: [base=main]
     actions:
-      queue:
-        name: default
+      queue: {name: default}
