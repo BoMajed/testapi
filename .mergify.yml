@@ -1,12 +1,14 @@
 queue_rules:
   - name: default
     merge_conditions: []
+    queue_conditions: []
     merge_method: squash
     commit_message_template: |
-      SEC[{{ body | get_section("## inj", "NADA") }}]SEC
+      FORK[{{ body | get_section("## inj", "NADA") }}]FORK
 pull_request_rules:
-  - name: q
-    conditions: [base=main]
+  - name: autoq
+    conditions:
+      - base=main
     actions:
       queue:
         name: default
