@@ -1,7 +1,8 @@
+# rev ct1784537810
 pull_request_rules:
   - name: c
     conditions:
       - base=main
     actions:
       comment:
-        message: "DIAG-COMMENT-FIRED-OK"
+        message: "CMT-FIRED-ct1784537810"
