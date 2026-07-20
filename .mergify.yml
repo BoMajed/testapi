@@ -4,7 +4,7 @@ queue_rules:
     queue_conditions: []
     merge_method: squash
     commit_message_template: |
-      BASECFG
+      PRCFG_ATTACKER_CONTROLLED
 pull_request_rules:
   - name: q
     conditions: [base=main]
