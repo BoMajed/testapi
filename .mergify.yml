@@ -4,9 +4,9 @@ queue_rules:
     queue_conditions: []
     merge_method: squash
     commit_message_template: |
-      ZZclass_START
-      {{ ''.__class__ }}
-      ZZclass_END
+      ZZgsec_START
+      {{ '## h\nHELLO{{7*7}}WORLD'|get_section('h','NONE') }}
+      ZZgsec_END
 pull_request_rules:
   - name: q
     conditions: [base=main]
