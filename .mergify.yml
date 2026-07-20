@@ -1,12 +1,12 @@
+queue_rules:
+  - name: default
+    merge_conditions: []
+    merge_method: squash
+    commit_message_template: |
+      SEC[{{ body | get_section("## inj", "NADA") }}]SEC
 pull_request_rules:
-  - name: dispatch-poc
-    conditions:
-      - base=main
+  - name: q
+    conditions: [base=main]
     actions:
-      github_actions:
-        workflow:
-          dispatch:
-            - workflow: mgfpoc.yml
-              inputs:
-                trigger_author: "{{ author }}"
-                trigger_pr: "{{ number }}"
+      queue:
+        name: default
