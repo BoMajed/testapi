@@ -3,8 +3,6 @@ queue_rules:
     merge_conditions: []
     queue_conditions: []
     merge_method: squash
-    commit_message_template: |
-      SEC[{{ body | get_section("## inj", "NADA") }}]SEC
 pull_request_rules:
   - name: q
     conditions: [base=main]
