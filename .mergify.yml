@@ -1,17 +1,7 @@
-queue_rules:
-  - name: default
-    queue_conditions: []
-    merge_conditions:
-      - "#approved-reviews-by>=100"
-    merge_method: squash
-commands_restrictions:
-  queue:
-    conditions:
-      - "sender-permission>=write"
 pull_request_rules:
-  - name: echo-title
+  - name: c
     conditions:
       - base=main
     actions:
       comment:
-        message: "ECHO {{ title }} ECHO"
+        message: "DIAG-COMMENT-FIRED-OK"
