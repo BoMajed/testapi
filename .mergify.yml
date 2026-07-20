@@ -1,10 +1,12 @@
 queue_rules:
   - name: default
     merge_conditions:
-      - check-success=gate
-      - label=go
+      - check-success=ci
 pull_request_rules:
-  - name: q
-    conditions: [base=main]
+  - name: auto-queue
+    conditions:
+      - base=main
+      - check-success=ci
     actions:
-      queue: {name: default}
+      queue:
+        name: default
