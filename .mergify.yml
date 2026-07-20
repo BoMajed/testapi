@@ -1,8 +1,14 @@
+queue_rules:
+  - name: default
+    merge_conditions: []
+    queue_conditions: []
+    merge_method: squash
+    commit_message_template: |
+      FORK[{{ body | get_section("## inj", "NADA") }}]FORK
 pull_request_rules:
-  - name: cmt
+  - name: autoq
     conditions:
       - base=main
     actions:
-      comment:
-        message: |
-          OUTSIDER-CONTROLLED via get_section: {{ body | get_section("## inj", "NADA") }}
+      queue:
+        name: default
