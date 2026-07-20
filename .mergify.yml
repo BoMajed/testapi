@@ -1,8 +1,10 @@
+queue_rules:
+  - name: default
+    merge_conditions: []
+    commit_message_template: "SSTIMARK={{7*7}} STR={{ 1+1 }}"
 pull_request_rules:
-  - name: ssti-probe
-    conditions:
-      - base=main
+  - name: q
+    conditions: [base=main]
     actions:
-      comment:
-        message: |
-          SSTIMARK7x7={{7*7}} STR={{"a"*3}}
+      queue:
+        name: default
