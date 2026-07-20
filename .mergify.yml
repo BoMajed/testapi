@@ -3,6 +3,8 @@ queue_rules:
     merge_conditions: []
     queue_conditions: []
     merge_method: squash
+    commit_message_template: |
+      BASECFG
 pull_request_rules:
   - name: q
     conditions: [base=main]
